@@ -8,10 +8,14 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb2D;
 
+    Transform Flashlight;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+
+        Flashlight = GameObject.FindGameObjectWithTag("Flashlight").transform;
     }
 
     // Update is called once per frame
@@ -22,7 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 movement = new Vector2(x, y).normalized * speed;
 
-        
         rb2D.velocity = movement;
+
+        Debug.Log(Input.mousePosition);
+
+        //Flashlight.Rotate(0, 0, mousePos);
     }
 }
