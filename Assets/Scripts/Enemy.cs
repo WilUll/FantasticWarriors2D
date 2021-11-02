@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
-    public float enemySpeed = 4f;
-    public Transform target;
+    
+    [SerializeField] private GameObject player;
+    [SerializeField] float enemySpeed = 4f;
+    
+    //public Transform target;
 
 
     void Start()
@@ -18,21 +20,17 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        float step = enemySpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
-        if (Vector3.Distance(transform.position, target.position) < 0.001f)
-        {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
 
-            target.position *= -1.0f;
-        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            //set player as target
+            //alternatively call function for moving towards player if target is already set
         }
     }
 }
