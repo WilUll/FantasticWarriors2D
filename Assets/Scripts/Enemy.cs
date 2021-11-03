@@ -21,16 +21,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-
-        if (inRangeOfPlayer)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyChaseSpeed * Time.deltaTime);
-        }
-        else
-        {
-
-        }
-
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyChaseSpeed * Time.deltaTime);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
