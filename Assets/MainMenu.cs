@@ -8,11 +8,11 @@ public class MainMenu : MonoBehaviour
     public void StartTheGame ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1f;
     }
 
     public void QuitTheGame ()
     {
-        Debug.Log("Quit");
         Application.Quit();
     }
 }
