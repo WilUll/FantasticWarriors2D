@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private float waitTime;
     public float startWaitTime;
 
+
+
     public float enemySpeed = 4f;
     public float enemyChaseSpeed = 4.5f;
     public float minX;
@@ -19,12 +21,13 @@ public class Enemy : MonoBehaviour
     public float maxY;
 
     public bool inRangeOfPlayer = false;
+    
     /////////
 
     void Start()
     {
         waitTime = startWaitTime;
-
+        
         moveSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
 
@@ -51,7 +54,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("starta timer");
+                    Debug.Log("patrol timer");
                     waitTime -= Time.deltaTime;
                 }
 
@@ -74,8 +77,9 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRangeOfPlayer = false;
-
         }
     }
+
+
     /////////
 }
