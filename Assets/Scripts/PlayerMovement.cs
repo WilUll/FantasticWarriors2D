@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
 
     Rigidbody2D rb2D;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,16 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
         rb2D.velocity = movement;
 
-        //Flashlight
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 0;
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
 
     }
 }
