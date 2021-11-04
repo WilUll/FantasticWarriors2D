@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb2D;
 
-    public GameObject stun;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +35,5 @@ public class PlayerMovement : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(stun, transform.position, transform.rotation);
-        }
     }
 }

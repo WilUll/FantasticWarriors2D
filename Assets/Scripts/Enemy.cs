@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    GameObject player;
+    public GameObject player;
    
     public float enemySpeed = 2f;
     public float enemyChaseSpeed = 4f;
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
 

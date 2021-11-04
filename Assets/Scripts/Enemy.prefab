@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ecf4c662dcc0e458c8bb681fce1acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7179801945334467145, guid: b929773581cb34c4e888a7d54c73f469, type: 3}
+  player: {fileID: 0}
   enemySpeed: 2
   enemyChaseSpeed: 4
   inRangeOfPlayer: 0
