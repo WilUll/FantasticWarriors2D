@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(Mathf.Clamp(Target.transform.position.x, -4, 58), Mathf.Clamp(Target.transform.position.y, -38, 48), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(Target.transform.position.x, -4.36f, 79.5f), Mathf.Clamp(Target.transform.position.y, -40.5f, 50.1f), transform.position.z);
         }
     }
 }

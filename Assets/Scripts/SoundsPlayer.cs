@@ -32,9 +32,9 @@ public class SoundsPlayer : MonoBehaviour
         randomTime++;
         randomPlay = Random.Range(3000, 10000);
 
-        if (randomTime % randomPlay == 0)
-        {
-            audioSource.PlayOneShot(Clips[0]);
-        }
+        //if (randomTime % randomPlay == 0)
+        //{
+        //    audioSource.PlayOneShot(Clips[0]);
+        //}
     }
 }

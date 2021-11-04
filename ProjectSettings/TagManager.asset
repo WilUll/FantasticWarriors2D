@@ -10,6 +10,7 @@ TagManager:
   - Stun
   - InsideHousePos
   - playerLastPos
+  - Key
   layers:
   - Default
   - TransparentFX

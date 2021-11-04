@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb2D;
 
     public GameObject stun;
+    public GameObject Key;
+
+    int haveKey;
+    bool escape;
 
 
     // Start is called before the first frame update
@@ -41,6 +45,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(stun, transform.position, transform.rotation);
+        }
+
+        if (haveKey == 1) escape = true;
+        
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            haveKey++;
         }
     }
 }
