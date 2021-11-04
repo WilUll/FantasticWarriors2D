@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
 
 
 
-    public float enemySpeed = 4f;
-    public float enemyChaseSpeed = 4.5f;
+    public float enemySpeed;
+    public float enemyChaseSpeed;
     public float minX;
     public float maxX;
     public float minY;
