@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb2D;
 
     public GameObject stun;
+
+
     // Start is called before the first frame update
     void Start()
     {

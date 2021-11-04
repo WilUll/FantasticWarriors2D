@@ -8,6 +8,8 @@ TagManager:
   - EnemyRange
   - Flashlight
   - Stun
+  - InsideHousePos
+  - playerLastPos
   layers:
   - Default
   - TransparentFX
