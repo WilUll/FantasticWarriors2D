@@ -35,7 +35,6 @@ public class EnemyCatcher : MonoBehaviour
             killTime -= Time.deltaTime;
             if (killTime <= 0)
             {
-                Debug.Log("du dog");
                 DeadPlayer.GameOver = true;
             }
         }
@@ -56,6 +55,7 @@ public class EnemyCatcher : MonoBehaviour
             if (playClips)
             {
                 audioSource.PlayOneShot(Clips[0]);
+                playClips = false;
             }
 
         }
@@ -66,6 +66,7 @@ public class EnemyCatcher : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inKillRangeOfPlayer = false;
+
             playClips = true;
         }
     }
