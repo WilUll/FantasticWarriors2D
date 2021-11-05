@@ -19,8 +19,6 @@ public class EnterHouse : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
 
-        insideHouse = GameObject.FindGameObjectWithTag("InsideHousePos");
-
         playerScript = player.GetComponent<PlayerMovement>();
     }
 
@@ -29,6 +27,7 @@ public class EnterHouse : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.E) && canOpenDoor && !cameraCheck.isInside)
         {
+            insideHouse = this.gameObject.transform.GetChild(0).gameObject;
             cameraCheck.isInside = true;
             playerScript.lastPlayerPos =  player.transform.position;
             Debug.Log(playerScript.lastPlayerPos);
