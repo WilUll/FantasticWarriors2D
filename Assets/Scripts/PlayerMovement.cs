@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     int haveKey;
     bool escape;
+    public bool GameOver;
 
 
     // Start is called before the first frame update
