@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     int haveKey;
     bool escape;
+    public bool GameOver;
 
     public Vector3 lastPlayerPos;
 

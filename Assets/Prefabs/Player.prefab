@@ -175,6 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   stun: {fileID: 0}
+  Key: {fileID: 0}
+  GameOver: 0
 --- !u!58 &7179801945334467127
 CircleCollider2D:
   m_ObjectHideFlags: 0
