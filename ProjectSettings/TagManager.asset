@@ -9,8 +9,8 @@ TagManager:
   - Flashlight
   - Stun
   - InsideHousePos
-  - playerLastPos
   - Key
+  - OutsideHousePos
   layers:
   - Default
   - TransparentFX
