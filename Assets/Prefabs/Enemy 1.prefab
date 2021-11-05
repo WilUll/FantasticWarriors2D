@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpots: {fileID: 0}
+  moveSpots: {fileID: 7241829842309005085, guid: 01148401b335f9c4095a5bc6bcbd3e2f, type: 3}
   startWaitTime: 4
   iSeeYou: {fileID: 8300000, guid: e3daefc71e05ac84aa4a867b150646d1, type: 3}
   enemySpeed: 2

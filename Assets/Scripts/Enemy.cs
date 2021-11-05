@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     /////////
-    public GameObject player;
+    GameObject player;
     public Transform moveSpots;
     private AudioSource audioSource;
 
@@ -33,6 +33,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         audioSource = GetComponent<AudioSource>();
 
 
