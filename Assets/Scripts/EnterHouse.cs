@@ -30,13 +30,11 @@ public class EnterHouse : MonoBehaviour
             insideHouse = this.gameObject.transform.GetChild(0).gameObject;
             cameraCheck.isInside = true;
             playerScript.lastPlayerPos =  player.transform.position;
-            Debug.Log(playerScript.lastPlayerPos);
             player.transform.position = insideHouse.transform.position;
         }
         else if (Input.GetKeyDown(KeyCode.E) && canOpenDoor && cameraCheck.isInside)
         {
             cameraCheck.isInside = false;
-            Debug.Log(playerScript.lastPlayerPos);
             player.transform.position = playerScript.lastPlayerPos;
         }
     }
