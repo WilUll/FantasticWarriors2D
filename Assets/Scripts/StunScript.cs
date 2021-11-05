@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class StunScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform stunPoint;
+    public GameObject stunCharge;
+
+
     void Start()
     {
     }
@@ -12,6 +15,12 @@ public class StunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("högerklick");
+            GameObject bullet = Instantiate(stunCharge, stunPoint.position, stunPoint.rotation);
+        }
         
     }
 }

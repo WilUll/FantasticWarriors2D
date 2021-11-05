@@ -27,7 +27,7 @@ public class EnemyCatcher : MonoBehaviour
             killTime -= Time.deltaTime;
             if (killTime <= 0)
             {
-                Debug.Log("du dog sopa");
+                Debug.Log("du dog");
             }
         }
         else
