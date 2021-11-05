@@ -10,10 +10,13 @@ public class EnemyCatcher : MonoBehaviour
 
     public bool inKillRangeOfPlayer = false;
 
+    PlayerMovement DeadPlayer;
+
   
     void Start()
     {
         killTime = startKillTime;
+        DeadPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     
@@ -23,11 +26,12 @@ public class EnemyCatcher : MonoBehaviour
         // Lose condition
         if (inKillRangeOfPlayer)
         {
-            Debug.Log("killtimer start");
+           
             killTime -= Time.deltaTime;
             if (killTime <= 0)
             {
                 Debug.Log("du dog");
+                DeadPlayer.GameOver = true;
             }
         }
         else
