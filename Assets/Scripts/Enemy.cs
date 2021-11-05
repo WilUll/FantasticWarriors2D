@@ -8,12 +8,12 @@ public class Enemy : MonoBehaviour
     GameObject player;
     public Transform moveSpots;
     private AudioSource audioSource;
+    public AudioClip[] iSeeYou;
 
     private float waitTime;
     public float startWaitTime;
 
 
-    public AudioClip iSeeYou;
 
 
     public float enemySpeed;
@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
 
     public bool inRangeOfPlayer = false;
     public bool isStunned = false;
+
+    bool playIseeYou = true;
+
 
     private float stunTimer = 1f;
 
@@ -53,14 +56,18 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyChaseSpeed * Time.deltaTime);
             transform.right = player.transform.position - transform.position;
-
-            audioSource.PlayOneShot(iSeeYou, 1f);
+            if (playIseeYou)
+            {
+                audioSource.PlayOneShot(iSeeYou[0]);
+                playIseeYou = false;
+            }
         }
         else
         {
 
             transform.position = Vector2.MoveTowards(transform.position, moveSpots.position, enemySpeed * Time.deltaTime);
             transform.right = moveSpots.position - transform.position;
+            playIseeYou = true;
 
 
             if (Vector2.Distance(transform.position, moveSpots.position) < 0.2f)
@@ -70,6 +77,7 @@ public class Enemy : MonoBehaviour
                     Debug.Log("flytta movespot");
                     moveSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
                     waitTime = startWaitTime;
+                    
                 }
                 else
                 {

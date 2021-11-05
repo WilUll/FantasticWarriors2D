@@ -12,11 +12,16 @@ public class EnemyCatcher : MonoBehaviour
 
     PlayerMovement DeadPlayer;
 
-  
+    AudioSource audioSource;
+    public AudioClip[] Clips;
+    bool playClips = true;
+
+
     void Start()
     {
         killTime = startKillTime;
         DeadPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     
@@ -47,6 +52,12 @@ public class EnemyCatcher : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inKillRangeOfPlayer = true;
+
+            if (playClips)
+            {
+                audioSource.PlayOneShot(Clips[0]);
+            }
+
         }
     }
     // Stops killtimer
@@ -55,6 +66,7 @@ public class EnemyCatcher : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inKillRangeOfPlayer = false;
+            playClips = true;
         }
     }
 
