@@ -11,7 +11,7 @@ public class EnterHouse : MonoBehaviour
 
     GameObject insideHouse;
 
-    GameObject outsideHouse; 
+    PlayerMovement playerScript;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class EnterHouse : MonoBehaviour
 
         insideHouse = GameObject.FindGameObjectWithTag("InsideHousePos");
 
-        outsideHouse = GameObject.FindGameObjectWithTag("OutsideHousePos");
+        playerScript = player.GetComponent<PlayerMovement>();
     }
 
     private void Update()
@@ -30,12 +30,15 @@ public class EnterHouse : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canOpenDoor && !cameraCheck.isInside)
         {
             cameraCheck.isInside = true;
+            playerScript.lastPlayerPos =  player.transform.position;
+            Debug.Log(playerScript.lastPlayerPos);
             player.transform.position = insideHouse.transform.position;
         }
         else if (Input.GetKeyDown(KeyCode.E) && canOpenDoor && cameraCheck.isInside)
         {
             cameraCheck.isInside = false;
-            player.transform.position = outsideHouse.transform.position;
+            Debug.Log(playerScript.lastPlayerPos);
+            player.transform.position = playerScript.lastPlayerPos;
         }
     }
 

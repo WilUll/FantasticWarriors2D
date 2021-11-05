@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     int haveKey;
     bool escape;
 
+    public Vector3 lastPlayerPos;
 
     // Start is called before the first frame update
     void Start()
