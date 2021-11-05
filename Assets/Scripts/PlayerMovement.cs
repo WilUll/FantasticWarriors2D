@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject stun;
     public GameObject Key;
 
-    int haveKey;
+    public int haveKey;
     bool escape;
     public bool GameOver;
 
