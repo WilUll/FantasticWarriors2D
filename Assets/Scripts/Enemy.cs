@@ -7,10 +7,13 @@ public class Enemy : MonoBehaviour
     /////////
     public GameObject player;
     public Transform moveSpots;
+    private AudioSource audioSource;
 
     private float waitTime;
     public float startWaitTime;
 
+
+    public AudioClip iSeeYou;
 
 
     public float enemySpeed;
@@ -21,11 +24,18 @@ public class Enemy : MonoBehaviour
     public float maxY;
 
     public bool inRangeOfPlayer = false;
+    public bool isStunned = false;
+
+    private float stunTimer = 1f;
+
     
     /////////
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+
         waitTime = startWaitTime;
         
         moveSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
@@ -36,13 +46,20 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        if (inRangeOfPlayer)
+        //Rangefinder and movement
+        if (inRangeOfPlayer && isStunned == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyChaseSpeed * Time.deltaTime);
+            transform.right = player.transform.position - transform.position;
+
+            audioSource.PlayOneShot(iSeeYou, 1f);
         }
         else
         {
+
             transform.position = Vector2.MoveTowards(transform.position, moveSpots.position, enemySpeed * Time.deltaTime);
+            transform.right = moveSpots.position - transform.position;
+
 
             if (Vector2.Distance(transform.position, moveSpots.position) < 0.2f)
             {
@@ -59,7 +76,21 @@ public class Enemy : MonoBehaviour
                 }
 
             }
-        }   
+        }
+
+        if (isStunned)
+        {
+            stunTimer -= Time.deltaTime;
+        }
+        
+        //while (isStunned)
+        //{
+        //    enemySpeed = 0;
+        //    enemyChaseSpeed = 0;
+        //}
+
+
+        
 
     }
 
@@ -70,6 +101,11 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRangeOfPlayer = true;
+        }
+
+        if (other.gameObject.CompareTag("Stun"))
+        {
+            isStunned = true;
         }
     }
     public void OnTriggerExit2D(Collider2D other)
