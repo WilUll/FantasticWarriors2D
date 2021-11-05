@@ -26,7 +26,7 @@ public class EnemyCatcher : MonoBehaviour
         // Lose condition
         if (inKillRangeOfPlayer)
         {
-           
+            Debug.Log("Death range");
             killTime -= Time.deltaTime;
             if (killTime <= 0)
             {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class StunCharge : MonoBehaviour
 {
 
-    private float stunTime = 1f;
+    public float stunTime = 1.5f;
     // Start is called before the first frame update
     void Start()
     {

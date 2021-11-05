@@ -23,16 +23,21 @@ public class Enemy : MonoBehaviour
     public float minY;
     public float maxY;
 
+    private float speed1;
+    private float speed2;
+
     public bool inRangeOfPlayer = false;
     public bool isStunned = false;
-
-    private float stunTimer = 1f;
 
     
     /////////
 
     void Start()
     {
+        speed1 = enemySpeed;
+        speed2 = enemyChaseSpeed;
+
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         audioSource = GetComponent<AudioSource>();
@@ -51,7 +56,8 @@ public class Enemy : MonoBehaviour
         //Rangefinder and movement
         if (inRangeOfPlayer && isStunned == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyChaseSpeed * Time.deltaTime);
+            Debug.Log("In range of player");
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed2 * Time.deltaTime);
             transform.right = player.transform.position - transform.position;
 
             audioSource.PlayOneShot(iSeeYou, 1f);
@@ -59,7 +65,7 @@ public class Enemy : MonoBehaviour
         else
         {
 
-            transform.position = Vector2.MoveTowards(transform.position, moveSpots.position, enemySpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, moveSpots.position, speed1 * Time.deltaTime);
             transform.right = moveSpots.position - transform.position;
 
 
@@ -82,17 +88,23 @@ public class Enemy : MonoBehaviour
 
         if (isStunned)
         {
-            stunTimer -= Time.deltaTime;
+            Debug.Log("You have been stunned");
+
+            speed1 = 0f;
+            speed2 = 0f;
+
+
+        }
+        else
+        {
+            speed1 = enemySpeed;
+            speed2 = enemyChaseSpeed;
         }
         
-        //while (isStunned)
-        //{
-        //    enemySpeed = 0;
-        //    enemyChaseSpeed = 0;
-        //}
-
-
         
+        
+        
+
 
     }
 
@@ -115,6 +127,11 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRangeOfPlayer = false;
+        }
+
+        if (other.gameObject.CompareTag("Stun"))
+        {
+            isStunned = false;
         }
     }
 
