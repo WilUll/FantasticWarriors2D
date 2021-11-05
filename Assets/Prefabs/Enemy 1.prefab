@@ -106,10 +106,10 @@ MonoBehaviour:
   startWaitTime: 4
   enemySpeed: 2
   enemyChaseSpeed: 3
-  minX: -11
-  maxX: 65
-  minY: -41
-  maxY: 51
+  minX: -12
+  maxX: 87
+  minY: -42
+  maxY: 52
   inRangeOfPlayer: 0
   isStunned: 0
 --- !u!58 &320919480892474684
