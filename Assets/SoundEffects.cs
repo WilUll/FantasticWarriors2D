@@ -17,9 +17,9 @@ public class SoundEffects : MonoBehaviour
     void Update()
     {
         randomTime++;
-        randomPlay = 1000;
+        randomPlay = 5000;
 
-        int randomIndex = Random.Range(0, 7);
+        int randomIndex = Random.Range(0, 8);
 
         if (randomTime % randomPlay == 0)
         {
