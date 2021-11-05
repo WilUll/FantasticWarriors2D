@@ -74,14 +74,12 @@ public class Enemy : MonoBehaviour
             {
                 if (waitTime <= 0)
                 {
-                    Debug.Log("flytta movespot");
                     moveSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
                     waitTime = startWaitTime;
                     
                 }
                 else
                 {
-                    Debug.Log("patrol timer");
                     waitTime -= Time.deltaTime;
                 }
 
